@@ -1,30 +1,44 @@
-import React from 'react';
+import { roundToNearestMinutes } from 'date-fns/fp';
+import { Toast } from 'flowbite-react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
+
 
 const Home = () => {
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
     const handleTask = event => {
         event.preventDefault()
         const form = event.target;
         const task = form.task.value;
         console.log(task)
-        const data = {
-            todo: task,
-            status: 'incomplete'
-        }
-        console.log(data)
-
-        fetch('http://localhost:5000/task', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(data => {
-                form.reset()
-                console.log(data)
-                alert('your product added successfully')
+        if (user) {
+            const data = {
+                todo: task,
+                status: 'incomplete',
+                email: user.email
+            }
+            fetch('https://task-app-server-iota.vercel.app/task', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(data)
             })
+                .then(res => res.json())
+                .then(data => {
+                    form.reset()
+                    console.log(data)
+                    toast.success('your task added successfully')
+                    navigate('/myTask')
+                })
+        }
+        else{
+            navigate('/login')
+        }
+
 
     }
 
