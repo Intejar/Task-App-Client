@@ -2,65 +2,50 @@
 ## Live URL
 https://alhasnat-task-app.netlify.app
 
-### `npm start`
+## Project Fetures
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* React
+* Tailwind CSS(CSS Framework)
+* React Query(Fetching Data)
+* React Hook Form
+* React Router Dom(Routes)
+* Date Fns
+* Firebase (Sigup/Signin System)
+* React Hot Toast
+* React Icons
+* React Spinner
+* ImageBB (Image Upload)
+* Dynamic Title(without npm)
+* Dark Mode (Tailwind css class)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Overview
+I have implemented 6 functionalities in this project:
 
-### `npm test`
+### Signin/Signup-
+Here I have used Firebase email/pass and google login system. Moreover I have implemented image upload system with imageBB free hosting app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![sigin](https://github.com/Intejar/Task-App-Client/assets/103610560/828786c9-41e6-4323-8f0d-d05596031250)
 
-### `npm run build`
+### My Task-
+This part is basically home part where all of user's specific task will be shown with status. Moreover user can edit or delete their task from here. There will be a button 'complete' and 'doing' by clicking it user can change his/her task status as completed or doing. Also a user can add a task by simply writing from the top of this page. 
+![mytask](https://github.com/Intejar/Task-App-Client/assets/103610560/7fc8af51-7edc-40e2-a26f-ae442d1b1224)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Completed Task-
+User can see their completed task from here. Also they will get an option for make a comment for that task also they can make them incomplete from here as well as delete that task.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![3](https://github.com/Intejar/Task-App-Client/assets/103610560/174ac7f5-8f5f-4375-afe3-120fe081ab6d)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Add Media Task-
+This page is about media task like where we have to use photo and details.This page will also contain date automatically from user while posting task.
+![media task](https://github.com/Intejar/Task-App-Client/assets/103610560/861f4ec9-ca6c-43ba-a5be-10c64595e7c2)
 
-### `npm run eject`
+### Media Task-
+This page will show added media task by user.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![m](https://github.com/Intejar/Task-App-Client/assets/103610560/ce2e5bc3-951e-4a3d-837e-0ce489ea45bd)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Dark Mode-
+Dark mode is just used my tailwind css dark theme.
+![d](https://github.com/Intejar/Task-App-Client/assets/103610560/0220e1cc-72e2-4c29-85ca-faff92818048)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
