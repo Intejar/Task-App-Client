@@ -19,6 +19,8 @@ https://alhasnat-task-app.netlify.app
 * Dark Mode (Tailwind css class)
 * Node Js, Express Js, Cors (Backend)
 * MongoDB Atlas(Database)
+* Vercel (Api Hosting)
+* Netlify (Live app hosting)
 
 ## Project Overview
 I have implemented 6 functionalities in this project:
