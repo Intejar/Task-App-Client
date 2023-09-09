@@ -17,6 +17,8 @@ https://alhasnat-task-app.netlify.app
 * ImageBB (Image Upload)
 * Dynamic Title(without npm)
 * Dark Mode (Tailwind css class)
+* Node Js, Express Js, Cors (Backend)
+* MongoDB Atlas(Database)
 
 ## Project Overview
 I have implemented 6 functionalities in this project:
