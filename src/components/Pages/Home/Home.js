@@ -19,7 +19,7 @@ const Home = () => {
         status: "incomplete",
         email: user.email,
       };
-      fetch("https://localhost:5000/task", {
+      fetch("https://task-app-server-iota.vercel.app/task", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -23,7 +23,7 @@ const CompletedTask = () => {
     queryKey: ["tasks"],
     queryFn: async () => {
       const res = await fetch(
-        `https://localhost:5000/completedTask?email=${crntUserMail}`
+        `https://task-app-server-iota.vercel.app/completedTask?email=${crntUserMail}`
       );
       const data = await res.json();
       return data;
@@ -43,7 +43,7 @@ const CompletedTask = () => {
     const comment = form.comment.value;
     const id = form.id.value;
     console.log(comment, id);
-    fetch(`https://localhost:5000/completedTask/${id}`, {
+    fetch(`https://task-app-server-iota.vercel.app/completedTask/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -63,7 +63,7 @@ const CompletedTask = () => {
   };
 
   const handleComplete = (id) => {
-    fetch(`https://localhost:5000/task/${id}`, {
+    fetch(`https://task-app-server-iota.vercel.app/task/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -87,7 +87,9 @@ const CompletedTask = () => {
 
   return (
     <div className="mx-10">
-      <h1>This is completed task</h1>
+      <h1 className="text-center my-5 text-2xl font-bold">
+        This is completed task
+      </h1>
       <Table hoverable={true}>
         <Table.Head>
           <Table.HeadCell>Task Name</Table.HeadCell>
@@ -106,45 +108,49 @@ const CompletedTask = () => {
               key={task._id}
               className="bg-white dark:border-gray-700 dark:bg-gray-800"
             >
-              <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                {task.todo}
-              </Table.Cell>
-              <Table.Cell>
-                <div className="flex items-center gap-1">
-                  <FaCircle className="text-xs text-green-500"></FaCircle>
-                  {task.status}
-                </div>
-              </Table.Cell>
-              <Table.Cell>
-                <form onSubmit={handleComment}>
-                  <input
-                    name="comment"
-                    type="text"
-                    id="first_name"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
-                    defaultValue={task.comment && task.comment}
-                    placeholder="Leave comment ...."
-                    required
-                  ></input>
-                  <input type="text" name="id" value={task._id} hidden />
-                  <input type="submit" hidden />
-                </form>
-              </Table.Cell>
-              <Table.Cell>
-                <Link
-                  onClick={() => handleComplete(task._id)}
-                  to="/"
-                  className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                >
-                  not complete
-                </Link>
-              </Table.Cell>
-              <Table.Cell>
-                <FaTrashAlt
-                  onClick={() => handleDelete(task._id)}
-                  className="cursor-pointer text-xl text-red-600"
-                ></FaTrashAlt>
-              </Table.Cell>
+              {task?.status === "completed" && (
+                <React.Fragment>
+                  <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    {task.todo}
+                  </Table.Cell>
+                  <Table.Cell>
+                    <div className="flex items-center gap-1">
+                      <FaCircle className="text-xs text-green-500"></FaCircle>
+                      {task.status}
+                    </div>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <form onSubmit={handleComment}>
+                      <input
+                        name="comment"
+                        type="text"
+                        id="first_name"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
+                        defaultValue={task.comment && task.comment}
+                        placeholder="Leave comment ...."
+                        required
+                      ></input>
+                      <input type="text" name="id" value={task._id} hidden />
+                      <input type="submit" hidden />
+                    </form>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link
+                      onClick={() => handleComplete(task._id)}
+                      to="/"
+                      className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                    >
+                      not complete
+                    </Link>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <FaTrashAlt
+                      onClick={() => handleDelete(task._id)}
+                      className="cursor-pointer text-xl text-red-600"
+                    ></FaTrashAlt>
+                  </Table.Cell>
+                </React.Fragment>
+              )}
             </Table.Row>
           ))}
         </Table.Body>

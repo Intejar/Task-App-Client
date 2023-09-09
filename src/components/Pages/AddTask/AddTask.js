@@ -17,7 +17,7 @@ import { TabTitle } from "../../DynamicTitle/DynamicTitle";
 
 const AddTask = () => {
   TabTitle("Add Task-Task App");
-  const imageHostKey = process.env.REACT_APP_imgbbKey;
+  const imageHostKey = "41185f8bc11dfae202e0de3bc10fcabe";
   const {
     register,
     formState: { errors },
@@ -41,7 +41,7 @@ const AddTask = () => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-        console.log("done");
+        console.log(imgData.data.url);
         const img = imgData.data.url;
         const taskData = {
           task: task,
@@ -50,7 +50,7 @@ const AddTask = () => {
           email: email,
           date: format(setDate, "PP"),
         };
-        fetch("https://localhost:5000/addTask", {
+        fetch("https://task-app-server-iota.vercel.app/addTask", {
           method: "POST",
           headers: {
             "content-type": "application/json",

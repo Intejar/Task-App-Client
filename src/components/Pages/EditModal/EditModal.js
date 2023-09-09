@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 const EditModal = ({ edit, refetch, visible, setVisible }) => {
   const [info, setInfo] = useState([]);
   useEffect(() => {
-    fetch(`https://localhost:5000/task/${edit}`)
+    fetch(`https://task-app-server-iota.vercel.app/task/${edit}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -31,7 +31,7 @@ const EditModal = ({ edit, refetch, visible, setVisible }) => {
       todo: data,
       check: checkBox,
     };
-    fetch(`https://localhost:5000/task/${edit}`, {
+    fetch(`https://task-app-server-iota.vercel.app/task/${edit}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

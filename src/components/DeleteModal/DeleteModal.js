@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 const DeleteModal = ({ dlt, refetch, visibleDlt, setVisibleDlt }) => {
   const [info, setInfo] = useState(false);
   if (info) {
-    fetch(`https://localhost:5000/task/${dlt}`, {
+    fetch(`https://task-app-server-iota.vercel.app/task/${dlt}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

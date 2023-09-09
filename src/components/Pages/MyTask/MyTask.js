@@ -37,7 +37,7 @@ const MyTask = () => {
     queryFn: async () => {
       if (user.email) {
         const res = await fetch(
-          `https://localhost:5000/task?email=${user.email}`
+          `https://task-app-server-iota.vercel.app/task?email=${user.email}`
         );
         const data = await res.json();
         return data;
@@ -56,7 +56,7 @@ const MyTask = () => {
         email: user.email,
         check: [],
       };
-      fetch("https://localhost:5000/task", {
+      fetch("https://task-app-server-iota.vercel.app/task", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -76,7 +76,7 @@ const MyTask = () => {
   };
 
   const handleComplete = (id) => {
-    fetch(`https://localhost:5000/task/${id}`, {
+    fetch(`https://task-app-server-iota.vercel.app/task/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -171,10 +171,17 @@ const MyTask = () => {
                       {task.todo}
                     </h5>
                     <span className="text-sm text-gray-500 dark:text-gray-400">
-                      <div className="flex items-center gap-1">
-                        <FaCircle className="text-xs text-red-500"></FaCircle>
-                        {task.status}
-                      </div>
+                      {task?.status == "completed" ? (
+                        <div className="flex items-center gap-1">
+                          <FaCircle className="text-xs text-green-500"></FaCircle>
+                          {task.status}
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-1">
+                          <FaCircle className="text-xs text-red-500"></FaCircle>
+                          {task.status}
+                        </div>
+                      )}
                     </span>
                     <div className="mt-4 flex space-x-3 lg:mt-6">
                       <Link
